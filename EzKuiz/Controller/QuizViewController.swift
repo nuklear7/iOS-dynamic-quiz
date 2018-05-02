@@ -12,7 +12,7 @@ import CoreData
 class QuizViewController: UIViewController {
     
     let context = AppDelegate.viewContext
-    var answerOptions = [AnswerOption]()
+    var answerOptions: [AnswerOption]!
     var _quiz: Quiz!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answersStackView: UIStackView!
@@ -26,7 +26,9 @@ class QuizViewController: UIViewController {
         self.setupQuiz(quiz: self._quiz, questionNo: 0)
     }
     
-    fileprivate func setupQuiz(quiz: Quiz, questionNo: Int) {
+    private func setupQuiz(quiz: Quiz, questionNo: Int) {
+        
+        self.answerOptions = [AnswerOption]()
         
         if qNo >= (_quiz.questions?.count)! {
             return
@@ -42,46 +44,49 @@ class QuizViewController: UIViewController {
         self.removeSubviews(containerView: answersStackView)
         
         // Adding answer buttons.
-        for (index, answer) in answers.enumerated() {
+        for answer in answers {
             
             let answer = answer as! Answer
-            let answerBtn = AnswerOption(type: UIButtonType.system)
-            let deviceSize = UIScreen.main.bounds.size
-            let btnHeight = 70
-            let btnWidth = Int(deviceSize.width-2*16)
-            
-            answerBtn.frame = CGRect(
-                x: (Int(deviceSize.width)/2 - btnWidth/2 - 16),
-                y: btnHeight*index + 16*index,
-                width: btnWidth,
-                height: btnHeight
-            )
-            answerBtn.addTarget(self, action: #selector(self.onBtnSelectAnswer), for: .touchUpInside)
-            answerBtn.setTitle(answer.text, for: UIControlState.normal)
-            answerBtn.titleLabel?.textAlignment = .center
-            answerBtn.contentVerticalAlignment = .center
-            answerBtn.backgroundColor = ColorUtil.primaryBlue()
-            answerBtn.setTitleColor(UIColor.white, for: .normal)
-            answerBtn.setTitleColor(UIColor.darkGray, for: .selected)
-            
-            answerBtn.isCorrect = answer.isRight
+            let answerBtn = createButton(answer: answer)
             
             answerOptions.append(answerBtn)
-            
-            answersStackView.addSubview(answerBtn)
+            answersStackView.addArrangedSubview(answerBtn)
         }
+        
+        answersStackView.translatesAutoresizingMaskIntoConstraints = false
+        answersStackView.axis = .vertical
+        answersStackView.alignment = .fill
+        answersStackView.distribution = .fillEqually
         
         self.disableAnswers(state: false)
         self.disableNextBtn(state: true)
     }
     
-    fileprivate func removeSubviews(containerView: UIView) {
+    private func createButton(answer: Answer) -> AnswerOption {
+    
+        let answerBtn = AnswerOption(type: UIButtonType.system)
+        
+        answerBtn.translatesAutoresizingMaskIntoConstraints = false
+        answerBtn.addTarget(self, action: #selector(self.onBtnSelectAnswer), for: .touchUpInside)
+        answerBtn.setTitle(answer.text, for: UIControlState.normal)
+        answerBtn.titleLabel?.textAlignment = .center
+        answerBtn.contentVerticalAlignment = .center
+        answerBtn.backgroundColor = ColorUtil.primaryBlue()
+        answerBtn.setTitleColor(UIColor.white, for: .normal)
+        answerBtn.setTitleColor(UIColor.darkGray, for: .selected)
+        
+        answerBtn.isCorrect = answer.isRight
+        
+        return answerBtn
+    }
+    
+    private func removeSubviews(containerView: UIView) {
         for view in containerView.subviews{
             view.removeFromSuperview()
         }
     }
     
-    fileprivate func getNthQuestion(questions: [NSManagedObject], n: Int) -> Question? {
+    private func getNthQuestion(questions: [NSManagedObject], n: Int) -> Question? {
         
         for (index, question) in questions.enumerated() {
             
@@ -100,7 +105,7 @@ class QuizViewController: UIViewController {
         processAnswer(answer: answer)
     }
     
-    fileprivate func processAnswer(answer: AnswerOption) {
+    private func processAnswer(answer: AnswerOption) {
         
         self.disableAnswers(state: true)
         self.disableNextBtn(state: false)
@@ -121,13 +126,13 @@ class QuizViewController: UIViewController {
         }, completion: nil)
     }
     
-    fileprivate func disableNextBtn(state: Bool) {
+    private func disableNextBtn(state: Bool) {
         
         self.nextBtn.isEnabled = !state
         self.nextBtn.backgroundColor = !state ? ColorUtil.primaryBlue() : UIColor.lightGray
     }
     
-    fileprivate func disableAnswers(state: Bool) {
+    private func disableAnswers(state: Bool) {
         
         answerOptions.enumerated().forEach {
             $0.element.isEnabled = !state
@@ -149,7 +154,7 @@ class QuizViewController: UIViewController {
         if segue.identifier == "finishQuizSegue" {
             
             let quizResultView = segue.destination as! QuizResultController
-            quizResultView.result = "\(self.correctAnswers)/\(self._quiz.questions!.count ?? 0)"
+            quizResultView.result = "\(self.correctAnswers)/\(self._quiz.questions!.count)"
         }
     }
     
