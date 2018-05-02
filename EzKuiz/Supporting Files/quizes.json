@@ -1,0 +1,124 @@
+[
+	{
+		"id": "0",
+		"author": "Dave",
+		"date": "2018-04-26T13:12:50",
+		"language": "hu",
+		"name": "Best.. Quiz.. Ever..",
+		"questions": [
+			{
+				"order": "1",
+				"text": "2 + 2 = ?",
+				"answers": [
+					{
+						"isRight": "false",
+						"text": "3"
+					},
+					{
+						"isRight": "false",
+						"text": "5"
+					},
+					{
+						"isRight": "true",
+						"text": "4"
+					}
+				]
+			},
+			{
+				"order": "2",
+				"text": "Mit süt a kis szűcs?",
+				"answers": [
+					{
+						"isRight": "false",
+						"text": "krumplit"
+					},
+					{
+						"isRight": "true",
+						"text": "sós húst"
+					},
+					{
+						"isRight": "false",
+						"text": "békacombot"
+					}
+				]
+			},
+			{
+				"order": "3",
+				"text": "Egy meggy mag meg még egy meggy mag..?",
+				"answers": [
+					{
+						"isRight": "true",
+						"text": "az 2 meggy mag"
+					},
+					{
+						"isRight": "false",
+						"text": "mozskvicssluszkulcs"
+					},
+					{
+						"isRight": "false",
+						"text": "krumpli"
+					}
+				]
+			},
+            {
+                "order": "4",
+                "text": "Még egy kérdés..",
+                "answers": [
+                    {
+                        "isRight": "true",
+                        "text": "még egy válasz"
+                    },
+                    {
+                        "isRight": "false",
+                        "text": "ehh"
+                    },
+                    {
+                        "isRight": "false",
+                        "text": "pff"
+                    }
+                ]
+            }
+		]
+	},
+	{
+		"id": "1",
+		"author": "Dave",
+		"date": "2018-04-27T18:25:43",
+		"language": "hu",
+		"name": "Kérdéssor2",
+		"questions": [
+			{
+				"order": "1",
+				"text": "Kérdés1",
+				"answers": [
+					{
+						"isRight": "false",
+						"text": "Válasz1"
+					},
+					{
+						"isRight": "false",
+						"text": "Válasz2"
+					},
+					{
+						"isRight": "true",
+						"text": "Válasz3"
+					}
+				]
+			},
+			{
+				"order": "2",
+				"text": "Igen?",
+				"answers": [
+					{
+						"isRight": "false",
+						"text": "Nem"
+					},
+					{
+						"isRight": "true",
+						"text": "Igen"
+					}
+				]
+			}
+		]
+	}
+]
