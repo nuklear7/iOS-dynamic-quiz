@@ -19,16 +19,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVE-GH-M6A">
-                                <rect key="frame" x="15" y="43" width="345" height="85"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2uK-Yt-X5X">
+                                <rect key="frame" x="16" y="16" width="343" height="124"/>
+                                <subviews>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNi-A8-HFa">
+                                        <rect key="frame" x="-16" y="0.0" width="0.0" height="124"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVE-GH-M6A">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="124"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="4" height="-1"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="CdJ-Qn-Xok"/>
+                                    <constraint firstAttribute="height" constant="124" id="zzh-gH-b8R"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mK7-Ys-SIX">
-                                <rect key="frame" x="16" y="136" width="343" height="382"/>
+                                <rect key="frame" x="16" y="148" width="343" height="370"/>
                                 <variation key="widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lML-y1-tIU">
@@ -47,15 +56,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jVE-GH-M6A" secondAttribute="trailing" constant="15" id="3dq-KK-qJP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mK7-Ys-SIX" secondAttribute="trailing" constant="16" id="B2K-Tf-kiD"/>
-                            <constraint firstItem="jVE-GH-M6A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="43" id="EY9-CQ-sqc"/>
-                            <constraint firstItem="jVE-GH-M6A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="bK9-C0-cM8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2uK-Yt-X5X" secondAttribute="trailing" constant="16" id="K8e-Db-zPo"/>
+                            <constraint firstItem="2uK-Yt-X5X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cfi-PT-Exj"/>
                             <constraint firstItem="lML-y1-tIU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cwS-4Q-oqc"/>
-                            <constraint firstItem="mK7-Ys-SIX" firstAttribute="top" secondItem="jVE-GH-M6A" secondAttribute="bottom" constant="8" id="eft-G4-k5p"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lML-y1-tIU" secondAttribute="bottom" constant="20" id="hzL-xd-iOf"/>
+                            <constraint firstItem="mK7-Ys-SIX" firstAttribute="top" secondItem="2uK-Yt-X5X" secondAttribute="bottom" constant="8" id="pUO-Kg-UBC"/>
                             <constraint firstItem="lML-y1-tIU" firstAttribute="top" secondItem="mK7-Ys-SIX" secondAttribute="bottom" constant="8" id="qY6-ag-Y7N"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lML-y1-tIU" secondAttribute="trailing" constant="16" id="rKa-jW-ADG"/>
+                            <constraint firstItem="2uK-Yt-X5X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="vJr-yr-hkV"/>
                             <constraint firstItem="mK7-Ys-SIX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zsR-pd-roc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -64,6 +73,7 @@
                     <connections>
                         <outlet property="answersStackView" destination="mK7-Ys-SIX" id="6cI-sd-vTk"/>
                         <outlet property="nextBtn" destination="lML-y1-tIU" id="PzW-dR-BoB"/>
+                        <outlet property="questionImage" destination="CNi-A8-HFa" id="eR5-I3-SEh"/>
                         <outlet property="questionLabel" destination="jVE-GH-M6A" id="E7N-kX-gsa"/>
                         <segue destination="PPC-RZ-8I6" kind="show" identifier="finishQuizSegue" id="Bhm-3m-0lT"/>
                     </connections>

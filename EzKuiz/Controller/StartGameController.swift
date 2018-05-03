@@ -52,6 +52,7 @@ class StartGameController: UITableViewController {
                     
                     question.order = Int64((_question["order"] as? String)!)!
                     question.text = _question["text"] as? String
+                    question.imageUrl = _question["imageUrl"] as? String ?? ""
                     
                     for _answer in (_question["answers"] as? [[String: Any]])! {
                         
@@ -139,6 +140,6 @@ class StartGameController: UITableViewController {
     }
     
     @IBAction func unwindToVC1(segue: UIStoryboardSegue) {
-        print("Unwinding to Start Game...")
+        NSLog("Unwinding to Start Game...")
     }
 }

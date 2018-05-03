@@ -50,5 +50,32 @@ class Util {
         
         return contents
     }
+    
+    static func downloadImage(url: URL, completition: @escaping (UIImage) -> ()) {
+        
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            if let e = error {
+                NSLog("Error downloading image: \(e)\nfrom:\"\(url)\"")
+            } else {
+                
+                if let res = response as? HTTPURLResponse {
+                    
+                    NSLog("Downloaded image with response code \(res.statusCode)")
+                    
+                    if let imageData = data {
+                        
+                        completition(UIImage(data: imageData)!)
+                    } else {
+                        NSLog("Couldn't get image: Image is nil")
+                    }
+                } else {
+                    NSLog("Couldn't get response code for some reason")
+                }
+            }
+        }).resume()
+    }
 }
 

@@ -9,6 +9,7 @@
 			{
 				"order": "1",
 				"text": "2 + 2 = ?",
+                "imageUrl": "https://www.rd.com/wp-content/uploads/2017/09/01-Can-You-Pass-This-Elementary-School-Math-Test--760x506.jpg",
 				"answers": [
 					{
 						"isRight": "false",
@@ -45,6 +46,7 @@
 			{
 				"order": "3",
 				"text": "Egy meggy mag meg még egy meggy mag..?",
+                "imageUrl": "https://www.dehir.hu/upload/images/wp_cikkek/2014/meggymagnagy.jpg",
 				"answers": [
 					{
 						"isRight": "true",
@@ -62,19 +64,20 @@
 			},
             {
                 "order": "4",
-                "text": "Még egy kérdés..",
+                "text": "",
+                "imageUrl": "https://asd.asd",
                 "answers": [
                     {
                         "isRight": "true",
-                        "text": "még egy válasz"
+                        "text": "Nincsen szöveg csak kép"
                     },
                     {
                         "isRight": "false",
-                        "text": "ehh"
+                        "text": "Még a kép se tölt be"
                     },
                     {
                         "isRight": "false",
-                        "text": "pff"
+                        "text": "Tolmácsot szeretnék kérni"
                     }
                 ]
             }
