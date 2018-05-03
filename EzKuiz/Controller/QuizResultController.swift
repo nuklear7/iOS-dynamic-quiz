@@ -11,10 +11,15 @@ import Foundation
 
 class QuizResultController: UIViewController {
     
+    
     @IBOutlet var resultLabel: UILabel!
     var result: String!
     
     override func viewDidLoad() {
         resultLabel.text = result
+    }
+    
+    @IBAction func onBtnBackToStartGame(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToStartGameSegue", sender: self)
     }
 }
