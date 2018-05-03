@@ -11,6 +11,7 @@ import Foundation
 
 class QuizResultController: UIViewController {
     
+    let unwindStartGameSegueID = "unwindToStartGameSegue"
     
     @IBOutlet var resultLabel: UILabel!
     var result: String!
@@ -20,6 +21,6 @@ class QuizResultController: UIViewController {
     }
     
     @IBAction func onBtnBackToStartGame(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToStartGameSegue", sender: self)
+        performSegue(withIdentifier: unwindStartGameSegueID, sender: self)
     }
 }

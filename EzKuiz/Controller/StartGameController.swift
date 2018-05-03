@@ -15,6 +15,7 @@ class StartGameController: UITableViewController {
     var quizes: [Quiz]!
     var quiz: Quiz!
     @IBOutlet var gamesTableView: UITableView!
+    let startQuizSegueID = "startQuizSegue"
     
     override func viewDidLoad() {
 
@@ -119,14 +120,16 @@ class StartGameController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.quiz = self.quizes[indexPath.row]
-        performSegue(withIdentifier: "startQuizSegue", sender: self)
+        performSegue(withIdentifier: startQuizSegueID, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "startQuizSegue" {
-            let quizView = segue.destination as! QuizViewController
-            quizView._quiz = self.quiz
+        if segue.identifier == startQuizSegueID {
+            
+            if let quizView = segue.destination as? QuizViewController {
+                quizView._quiz = self.quiz
+            }
         }
     }
     

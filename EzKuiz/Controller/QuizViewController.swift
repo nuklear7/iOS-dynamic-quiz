@@ -19,6 +19,7 @@ class QuizViewController: UIViewController {
     @IBOutlet var nextBtn: UIButton!
     var qNo = 0
     var correctAnswers = 0
+    let finishQuizSegueID = "finishQuizSegue"
     
     override func viewDidLoad() {
         
@@ -43,7 +44,6 @@ class QuizViewController: UIViewController {
         
         self.removeSubviews(containerView: answersStackView)
         
-        // Adding answer buttons.
         for answer in answers {
             
             let answer = answer as! Answer
@@ -144,17 +144,19 @@ class QuizViewController: UIViewController {
         qNo = qNo+1
         
         if qNo >= (_quiz.questions?.count)! {
-            performSegue(withIdentifier: "finishQuizSegue", sender: self)
+            performSegue(withIdentifier: finishQuizSegueID, sender: self)
         } else {
             setupQuiz(quiz: self._quiz, questionNo: qNo)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "finishQuizSegue" {
+        
+        if segue.identifier == finishQuizSegueID {
             
-            let quizResultView = segue.destination as! QuizResultController
-            quizResultView.result = "\(self.correctAnswers)/\(self._quiz.questions!.count)"
+            if let quizResultView = segue.destination as? QuizResultController {
+                quizResultView.result = "\(self.correctAnswers)/\(self._quiz.questions!.count)"
+            }
         }
     }
     
@@ -163,7 +165,6 @@ class QuizViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
