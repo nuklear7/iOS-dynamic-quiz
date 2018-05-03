@@ -14,12 +14,14 @@ class QuizViewController: UIViewController {
     let context = AppDelegate.viewContext
     var answerOptions: [AnswerOption]!
     var _quiz: Quiz!
-    @IBOutlet var questionLabel: UILabel!
-    @IBOutlet var answersStackView: UIStackView!
-    @IBOutlet var nextBtn: UIButton!
     var qNo = 0
     var correctAnswers = 0
     let finishQuizSegueID = "finishQuizSegue"
+    
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var answersStackView: UIStackView!
+    @IBOutlet var nextBtn: UIButton!
+    @IBOutlet var questionImage: UIImageView!
     
     override func viewDidLoad() {
         
@@ -38,18 +40,47 @@ class QuizViewController: UIViewController {
         let questions = (quiz.questions as! Set<NSManagedObject>).sorted(by: {
             Int(($0 as! Question).order) < Int(($1 as! Question).order)
         })
-        let answers = self.getNthQuestion(questions: questions, n: questionNo)?.answers as! Set<NSManagedObject>
         
-        self.questionLabel.text = self.getNthQuestion(questions: questions, n: questionNo)?.text
+        let question = self.getNthQuestion(questions: questions, n: questionNo)!
+        
+        if question.imageUrl != "" {
+            
+            self.questionImage.image = UIImage(named: "no-image")
+            self.questionImage.isHidden = false
+            
+            Util.downloadImage(url: URL(string: question.imageUrl!)!, completition: { image in
+                DispatchQueue.main.async {
+                    self.questionImage.image = image
+                }
+            })
+        } else {
+            self.questionImage.isHidden = true
+            self.questionImage.image = nil
+        }
+        
+        
+        if question.text != "" {
+            self.questionLabel.text = question.text
+            self.questionLabel.isHidden = false
+        } else {
+            self.questionLabel.isHidden = true
+        }
         
         self.removeSubviews(containerView: answersStackView)
         
-        for answer in answers {
+        let answers = question.answers as! Set<NSManagedObject>
+        
+        for (index, answer) in answers.enumerated() {
             
             let answer = answer as! Answer
             let answerBtn = createButton(answer: answer)
             
+            UIView.animate(withDuration: 0.5, delay: TimeInterval(CGFloat(0.5) * CGFloat(index)), animations: {
+                answerBtn.alpha = 1
+            })
+            
             answerOptions.append(answerBtn)
+            
             answersStackView.addArrangedSubview(answerBtn)
         }
         
@@ -116,11 +147,16 @@ class QuizViewController: UIViewController {
             color = UIColor.red
         }
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-            
-            answer.backgroundColor = color
-            
-        }, completion: nil)
+        UIView.transition(
+            with: answer,
+            duration: 0.6,
+            options: [.transitionFlipFromTop],
+            animations: {
+                answer.backgroundColor = color
+                answer.setTitleColor(UIColor.black, for: .normal)
+            },
+            completion: nil
+        )
     }
     
     private func disableNextBtn(state: Bool) {
