@@ -29,7 +29,7 @@ class Util {
                 try managedObjectContext.execute(deleteArticleRequest)
                 try managedObjectContext.save()
             } catch {
-                print ("There was an error")
+                NSLog("There was an error")
             }
         }
     }
@@ -42,10 +42,10 @@ class Util {
             do {
                 contents = try String(contentsOfFile: filepath)
             } catch {
-                print("File parsing error: \(error)")
+                NSLog("File parsing error: \(error)")
             }
         } else {
-            print("File not found!")
+            NSLog("File not found!")
         }
         
         return contents

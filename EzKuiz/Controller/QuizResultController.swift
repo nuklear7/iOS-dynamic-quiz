@@ -18,6 +18,7 @@ class QuizResultController: UIViewController {
     
     override func viewDidLoad() {
         resultLabel.text = result
+        navigationItem.hidesBackButton = true
     }
     
     @IBAction func onBtnBackToStartGame(_ sender: Any) {

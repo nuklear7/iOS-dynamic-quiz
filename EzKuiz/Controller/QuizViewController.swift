@@ -54,9 +54,6 @@ class QuizViewController: UIViewController {
         }
         
         answersStackView.translatesAutoresizingMaskIntoConstraints = false
-        answersStackView.axis = .vertical
-        answersStackView.alignment = .fill
-        answersStackView.distribution = .fillEqually
         
         self.disableAnswers(state: false)
         self.disableNextBtn(state: true)

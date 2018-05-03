@@ -123,6 +123,11 @@ class StartGameController: UITableViewController {
         performSegue(withIdentifier: startQuizSegueID, sender: self)
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+    
+    // Segue funcs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == startQuizSegueID {
