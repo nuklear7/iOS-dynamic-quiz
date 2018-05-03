@@ -8,17 +8,28 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class QuizResultController: UIViewController {
     
     let unwindStartGameSegueID = "unwindToStartGameSegue"
     
     @IBOutlet var resultLabel: UILabel!
-    var result: String!
+    var resultCurrent: Int!
+    var resultMax: Int!
+    var scoring: Set<NSManagedObject>!
     
     override func viewDidLoad() {
-        resultLabel.text = result
+        
+        resultLabel.text = "\(resultCurrent!)/\(resultMax!)"
         navigationItem.hidesBackButton = true
+        
+        for score in scoring {
+            
+            var score = score as! Scoring
+            
+            print(score.percent)
+        }
     }
     
     @IBAction func onBtnBackToStartGame(_ sender: Any) {

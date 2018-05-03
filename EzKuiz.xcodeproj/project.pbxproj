@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB078C06209A3E2E00FC2AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB078C04209A3E2E00FC2AB7 /* Main.storyboard */; };
+		EB887F83209BC5000005A88D /* Scoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB887F82209BC5000005A88D /* Scoring.swift */; };
 		EB98EBAD2091D69400A7AA21 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB98EBAC2091D69400A7AA21 /* AnswerCell.swift */; };
 		EB98EBB22092530C00A7AA21 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB98EBB12092530C00A7AA21 /* ColorUtil.swift */; };
 		EB98EBB520925F5800A7AA21 /* StartGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB98EBB420925F5800A7AA21 /* StartGameController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		EB078C05209A3E2E00FC2AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB887F82209BC5000005A88D /* Scoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoring.swift; sourceTree = "<group>"; };
 		EB98EBAC2091D69400A7AA21 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		EB98EBB12092530C00A7AA21 /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		EB98EBB420925F5800A7AA21 /* StartGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameController.swift; sourceTree = "<group>"; };
@@ -62,8 +64,8 @@
 		EB98EBB320925E5D00A7AA21 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EBADAD9520908F9700741764 /* QuizViewController.swift */,
 				EB98EBB420925F5800A7AA21 /* StartGameController.swift */,
+				EBADAD9520908F9700741764 /* QuizViewController.swift */,
 				EB98EBC320939F1700A7AA21 /* QuizResultController.swift */,
 			);
 			path = Controller;
@@ -136,6 +138,7 @@
 				EBADADA92090ACCC00741764 /* Question.swift */,
 				EBADADAB2090AD1700741764 /* Answer.swift */,
 				EB98EBBA209267FC00A7AA21 /* Quiz.swift */,
+				EB887F82209BC5000005A88D /* Scoring.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				EB98EBBE2093172700A7AA21 /* Util.swift in Sources */,
 				EBADAD9620908F9700741764 /* QuizViewController.swift in Sources */,
 				EB98EBBB209267FC00A7AA21 /* Quiz.swift in Sources */,
+				EB887F83209BC5000005A88D /* Scoring.swift in Sources */,
 				EBADADAA2090ACCC00741764 /* Question.swift in Sources */,
 				EBADADAC2090AD1700741764 /* Answer.swift in Sources */,
 				EB98EBC420939F1700A7AA21 /* QuizResultController.swift in Sources */,
