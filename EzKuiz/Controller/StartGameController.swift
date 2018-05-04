@@ -71,7 +71,7 @@ class StartGameController: UITableViewController {
                     
                     let scoring = Scoring(context: context)
                     
-                    scoring.percent = NSDecimalNumber(string: String(describing: _scoring["percent"]))
+                    scoring.percent = NSDecimalNumber(string: String(describing: _scoring["percent"]!))
                     scoring.text = _scoring["text"] as? String
                     scoring.imageUrl = _scoring["imageUrl"] as? String ?? ""
                     

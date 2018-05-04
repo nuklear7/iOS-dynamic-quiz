@@ -188,8 +188,8 @@ class QuizViewController: UIViewController {
         if segue.identifier == finishQuizSegueID {
             
             if let quizResultView = segue.destination as? QuizResultController {
-                quizResultView.resultCurrent = self.correctAnswers
-                quizResultView.resultMax = self._quiz.questions!.count
+                quizResultView.resultCurrent = NSDecimalNumber(decimal: Decimal(self.correctAnswers))
+                quizResultView.resultMax = NSDecimalNumber(decimal: Decimal(self._quiz.questions!.count))
                 quizResultView.scoring = self._quiz.scoring as? Set<NSManagedObject>
             }
         }
