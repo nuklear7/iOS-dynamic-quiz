@@ -19,10 +19,18 @@
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="quiz" inverseEntity="Question" syncable="YES"/>
+        <relationship name="scoring" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Scoring" inverseName="newRelationship" inverseEntity="Scoring" syncable="YES"/>
+    </entity>
+    <entity name="Scoring" representedClassName=".Scoring" syncable="YES" codeGenerationType="category">
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percent" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quiz" inverseName="scoring" inverseEntity="Quiz" syncable="YES"/>
     </entity>
     <elements>
         <element name="Answer" positionX="79" positionY="-16" width="128" height="88"/>
-        <element name="Question" positionX="-99" positionY="-18" width="128" height="120"/>
-        <element name="Quiz" positionX="-281" positionY="-18" width="128" height="133"/>
+        <element name="Question" positionX="-101" positionY="-45" width="128" height="118"/>
+        <element name="Quiz" positionX="-254" positionY="-351" width="128" height="148"/>
+        <element name="Scoring" positionX="-72" positionY="-180" width="128" height="103"/>
     </elements>
 </model>

@@ -81,7 +81,29 @@
                     }
                 ]
             }
-		]
+		],
+        "scoring": [
+            {
+                "percent": "30",
+                "text": "Hát ez jó sz*r lett.. :/",
+                "imageUrl": ""
+            },
+            {
+                "percent": "60",
+                "text": "Kezd alakulni..",
+                "imageUrl": ""
+            },
+            {
+                "percent": "80",
+                "text": "Good 'nuf!",
+                "imageUrl": ""
+            },
+            {
+                "percent": "100",
+                "text": "Excellent!!ASD44!",
+                "imageUrl": ""
+            }
+        ]
 	},
 	{
 		"id": "1",
@@ -122,6 +144,7 @@
 					}
 				]
 			}
-		]
+		],
+        "scoring": []
 	}
 ]

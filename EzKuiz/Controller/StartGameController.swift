@@ -66,6 +66,17 @@ class StartGameController: UITableViewController {
                     
                     quiz.addToQuestions(question)
                 }
+                
+                for _scoring in (_quiz["scoring"] as? [[String: Any]])! {
+                    
+                    let scoring = Scoring(context: context)
+                    
+                    scoring.percent = NSDecimalNumber(string: String(describing: _scoring["percent"]!))
+                    scoring.text = _scoring["text"] as? String
+                    scoring.imageUrl = _scoring["imageUrl"] as? String ?? ""
+                    
+                    quiz.addToScoring(scoring)
+                }
             }
             
             do {
