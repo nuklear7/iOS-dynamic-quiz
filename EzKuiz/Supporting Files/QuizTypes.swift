@@ -8,6 +8,7 @@
 
 import UIKit
 
-class QuizTypes: NSObject {
-
+enum QuizTypes: String {
+    case scoring = "scoring"
+    case percent = "percent"
 }

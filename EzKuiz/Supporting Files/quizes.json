@@ -5,6 +5,7 @@
 		"date": "2018-04-26T13:12:50",
 		"language": "hu",
 		"name": "Best.. Quiz.. Ever..",
+        "type": "percent",
 		"questions": [
 			{
 				"order": "1",
@@ -12,15 +13,15 @@
                 "imageUrl": "https://www.rd.com/wp-content/uploads/2017/09/01-Can-You-Pass-This-Elementary-School-Math-Test--760x506.jpg",
 				"answers": [
 					{
-						"isRight": "false",
+						"isCorrect": "false",
 						"text": "3"
 					},
 					{
-						"isRight": "false",
+						"isCorrect": "false",
 						"text": "5"
 					},
 					{
-						"isRight": "true",
+						"isCorrect": "true",
 						"text": "4"
 					}
 				]
@@ -30,15 +31,15 @@
 				"text": "Mit süt a kis szűcs?",
 				"answers": [
 					{
-						"isRight": "false",
+						"isCorrect": "false",
 						"text": "krumplit"
 					},
 					{
-						"isRight": "true",
+						"isCorrect": "true",
 						"text": "sós húst"
 					},
 					{
-						"isRight": "false",
+						"isCorrect": "false",
 						"text": "békacombot"
 					}
 				]
@@ -49,15 +50,15 @@
                 "imageUrl": "https://www.dehir.hu/upload/images/wp_cikkek/2014/meggymagnagy.jpg",
 				"answers": [
 					{
-						"isRight": "true",
+						"isCorrect": "true",
 						"text": "az 2 meggy mag"
 					},
 					{
-						"isRight": "false",
+						"isCorrect": "false",
 						"text": "mozskvicssluszkulcs"
 					},
 					{
-						"isRight": "false",
+						"isCorrect": "false",
 						"text": "krumpli"
 					}
 				]
@@ -68,15 +69,15 @@
                 "imageUrl": "https://asd.asd",
                 "answers": [
                     {
-                        "isRight": "true",
+                        "isCorrect": "true",
                         "text": "Nincsen szöveg csak kép"
                     },
                     {
-                        "isRight": "false",
+                        "isCorrect": "false",
                         "text": "Még a kép se tölt be"
                     },
                     {
-                        "isRight": "false",
+                        "isCorrect": "false",
                         "text": "Tolmácsot szeretnék kérni"
                     }
                 ]
@@ -84,12 +85,12 @@
 		],
         "scoring": [
             {
-                "percent": "30",
+                "percent": "0",
                 "text": "Hát ez jó sz*r lett.. :/",
                 "imageUrl": ""
             },
             {
-                "percent": "60",
+                "percent": "30",
                 "text": "Kezd alakulni..",
                 "imageUrl": ""
             },
@@ -110,41 +111,99 @@
 		"author": "Dave",
 		"date": "2018-04-27T18:25:43",
 		"language": "hu",
-		"name": "Kérdéssor2",
+		"name": "Scoring",
+        "type": "scoring",
 		"questions": [
 			{
 				"order": "1",
-				"text": "Kérdés1",
+				"text": "Súlyozott kérdés 1",
 				"answers": [
 					{
-						"isRight": "false",
-						"text": "Válasz1"
+                        "score": "50",
+						"text": "50"
 					},
 					{
-						"isRight": "false",
-						"text": "Válasz2"
+                        "score": "100",
+						"text": "100"
 					},
 					{
-						"isRight": "true",
-						"text": "Válasz3"
+                        "score": "0",
+						"text": "0"
 					}
 				]
 			},
 			{
 				"order": "2",
-				"text": "Igen?",
+				"text": "Súlyozott kérdés 2",
 				"answers": [
 					{
-						"isRight": "false",
-						"text": "Nem"
-					},
-					{
-						"isRight": "true",
-						"text": "Igen"
-					}
+                        "score": "0",
+						"text": "0"
+                    },
+                    {
+                        "score": "20",
+                        "text": "20"
+                    },
+                    {
+                        "score": "50",
+                        "text": "50"
+                    },
+                    {
+                        "score": "70",
+                        "text": "70"
+                    },
+                    {
+                        "score": "100",
+                        "text": "100"
+                    }
 				]
-			}
+              },
+              {
+                "order": "3",
+                "text": "Súlyozott kérdés 3",
+                "answers": [
+                    {
+                        "score": "50",
+                        "text": "50"
+                    },
+                    {
+                        "score": "100",
+                        "text": "100"
+                    }
+                ]
+              }
 		],
-        "scoring": []
+        "scoring": [
+            {
+                "percent": "0",
+                "text": "0",
+                "imageUrl": ""
+            },
+            {
+                "percent": "20",
+                "text": "20",
+                "imageUrl": ""
+            },
+            {
+                "percent": "40",
+                "text": "40",
+                "imageUrl": ""
+            },
+            {
+                "percent": "60",
+                "text": "60",
+                "imageUrl": ""
+            },
+            {
+                "percent": "80",
+                "text": "80",
+                "imageUrl": ""
+            },
+            {
+                "percent": "100",
+                "text": "100",
+                "imageUrl": ""
+            }
+        ]
 	}
 ]

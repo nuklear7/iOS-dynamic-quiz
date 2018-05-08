@@ -16,13 +16,22 @@ class QuizResultController: UIViewController {
     
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
-    var resultCurrent: NSDecimalNumber!
-    var resultMax: NSDecimalNumber!
-    var scoring: Set<NSManagedObject>!
+    
+    var questionType: String?
+    var resultCurrent: Double!
+    var resultMax: Double!
+    var scores: Set<NSManagedObject>!
+    var sortedScores: [NSManagedObject]!
+    var finalScore: Double?
+    
+    var numOfQuestions: Int?
     
     override func viewDidLoad() {
         
-        scoreLabel.text = "\(resultCurrent!)/\(resultMax!)"
+        self.sortedScores = scores.sorted(by: {
+            ($0 as! Scoring).percent < ($1 as! Scoring).percent
+        })
+        scoreLabel.text = "\(Int(resultCurrent!))/\(Int(resultMax!))"
         navigationItem.hidesBackButton = true
         
         self.processScoring()
@@ -30,16 +39,26 @@ class QuizResultController: UIViewController {
     
     private func processScoring() {
         
-        let resultPercent = resultCurrent.dividing(by: resultMax).multiplying(by: 100)
+        var resultPercent = 0.0
         
-        for score in scoring {
+        if QuizTypes.scoring.rawValue == self.questionType {
+            
+            resultPercent = self.finalScore! / Double(self.numOfQuestions!)
+        } else if QuizTypes.percent.rawValue == self.questionType {
+            
+            resultPercent = resultCurrent/resultMax*100
+        }
+        
+        print("resultPercent: \(resultPercent)")
+        
+        for score in self.sortedScores {
     
             let score = score as! Scoring
             
-            if NSDecimalNumber(string: String(describing: resultPercent)).compare(score.percent!).rawValue == -1 ||
-                NSDecimalNumber(string: String(describing: resultPercent)).compare(score.percent!).rawValue == 0 {
+            if resultPercent >= score.percent {
                 
                 self.resultLabel.text = score.text!
+            } else {
                 break
             }
         }

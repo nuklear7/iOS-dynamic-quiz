@@ -11,7 +11,7 @@ import UIKit
 class AnswerOption: UIButton {
 
     var isCorrect: Bool!
-    var points: Int!
+    var score: Double!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

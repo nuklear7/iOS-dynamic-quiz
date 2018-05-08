@@ -45,6 +45,7 @@ class StartGameController: UITableViewController {
                 
                 quiz.language = _quiz["language"] as? String
                 quiz.author = _quiz["author"] as? String
+                quiz.type = _quiz["type"] as? String
                 
                 for _question in (_quiz["questions"] as? [[String: Any]])! {
                     
@@ -59,7 +60,8 @@ class StartGameController: UITableViewController {
                         let answer = Answer(context: context)
                         
                         answer.text = _answer["text"] as? String
-                        answer.isRight = ((_answer["isRight"] as? String)?.toBool())!
+                        answer.isCorrect = ((_answer["isCorrect"] as? String ?? "true")?.toBool())!
+                        answer.score = ((_answer["score"] as? NSString ?? "0")?.doubleValue)!
                         
                         question.addToAnswers(answer)
                     }
@@ -71,7 +73,7 @@ class StartGameController: UITableViewController {
                     
                     let scoring = Scoring(context: context)
                     
-                    scoring.percent = NSDecimalNumber(string: String(describing: _scoring["percent"]!))
+                    scoring.percent = Double(_scoring["percent"] as! String)!
                     scoring.text = _scoring["text"] as? String
                     scoring.imageUrl = _scoring["imageUrl"] as? String ?? ""
                     
@@ -86,7 +88,7 @@ class StartGameController: UITableViewController {
                 NSLog("Error while saving: \(error.localizedDescription)")
             }
         } catch {
-            fatalError("Cannot get game content: \(error)")
+            NSLog("Cannot get game content: \(error)")
         }
     }
     

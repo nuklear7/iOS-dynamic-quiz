@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB078C06209A3E2E00FC2AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB078C04209A3E2E00FC2AB7 /* Main.storyboard */; };
+		EB3D510F20A0ECD1006853EC /* QuizTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3D510E20A0ECD1006853EC /* QuizTypes.swift */; };
 		EB887F83209BC5000005A88D /* Scoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB887F82209BC5000005A88D /* Scoring.swift */; };
 		EB98EBAD2091D69400A7AA21 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB98EBAC2091D69400A7AA21 /* AnswerCell.swift */; };
 		EB98EBB22092530C00A7AA21 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB98EBB12092530C00A7AA21 /* ColorUtil.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		EB078C05209A3E2E00FC2AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB3D510E20A0ECD1006853EC /* QuizTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTypes.swift; sourceTree = "<group>"; };
 		EB887F82209BC5000005A88D /* Scoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoring.swift; sourceTree = "<group>"; };
 		EB98EBAC2091D69400A7AA21 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		EB98EBB12092530C00A7AA21 /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				EB98EBB12092530C00A7AA21 /* ColorUtil.swift */,
 				EB98EBBD2093172700A7AA21 /* Util.swift */,
 				EB98EBC12093297D00A7AA21 /* StringUtil.swift */,
+				EB3D510E20A0ECD1006853EC /* QuizTypes.swift */,
 				EB98EBBF2093201200A7AA21 /* quizes.json */,
 			);
 			path = "Supporting Files";
@@ -227,6 +230,7 @@
 				EB98EBAD2091D69400A7AA21 /* AnswerCell.swift in Sources */,
 				EBADAD9420908F9700741764 /* AppDelegate.swift in Sources */,
 				EB98EBC22093297D00A7AA21 /* StringUtil.swift in Sources */,
+				EB3D510F20A0ECD1006853EC /* QuizTypes.swift in Sources */,
 				EBADAD9C20908F9700741764 /* EzKuiz.xcdatamodeld in Sources */,
 				EB98EBB22092530C00A7AA21 /* ColorUtil.swift in Sources */,
 				EB98EBB7209262B800A7AA21 /* GameCell.swift in Sources */,

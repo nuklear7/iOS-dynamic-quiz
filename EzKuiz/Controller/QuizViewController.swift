@@ -15,7 +15,10 @@ class QuizViewController: UIViewController {
     var answerOptions: [AnswerOption]!
     var _quiz: Quiz!
     var qNo = 0
+    
     var correctAnswers = 0
+    var scoreOfAnswers: Double = 0.0
+    
     let finishQuizSegueID = "finishQuizSegue"
     
     @IBOutlet var questionLabel: UILabel!
@@ -103,7 +106,8 @@ class QuizViewController: UIViewController {
         answerBtn.setTitleColor(UIColor.white, for: .normal)
         answerBtn.setTitleColor(UIColor.darkGray, for: .selected)
         
-        answerBtn.isCorrect = answer.isRight
+        answerBtn.isCorrect = answer.isCorrect
+        answerBtn.score = answer.score
         
         return answerBtn
     }
@@ -140,11 +144,18 @@ class QuizViewController: UIViewController {
         
         var color: UIColor!
         
-        if answer.isCorrect {
-            color = UIColor.green
-            self.correctAnswers = correctAnswers + 1
-        } else {
-            color = UIColor.red
+        if _quiz.type == QuizTypes.percent.rawValue {
+            
+            if answer.isCorrect {
+                color = UIColor.green
+                self.correctAnswers = correctAnswers + 1
+            } else {
+                color = UIColor.red
+            }
+        } else if _quiz.type == QuizTypes.scoring.rawValue {
+            
+            self.scoreOfAnswers += answer.score
+            color = UIColor.cyan
         }
         
         UIView.transition(
@@ -188,9 +199,12 @@ class QuizViewController: UIViewController {
         if segue.identifier == finishQuizSegueID {
             
             if let quizResultView = segue.destination as? QuizResultController {
-                quizResultView.resultCurrent = NSDecimalNumber(decimal: Decimal(self.correctAnswers))
-                quizResultView.resultMax = NSDecimalNumber(decimal: Decimal(self._quiz.questions!.count))
-                quizResultView.scoring = self._quiz.scoring as? Set<NSManagedObject>
+                quizResultView.resultCurrent = Double(self.correctAnswers)
+                quizResultView.resultMax = Double(self._quiz.questions!.count)
+                quizResultView.scores = self._quiz.scoring as? Set<NSManagedObject>
+                quizResultView.finalScore = self.scoreOfAnswers
+                quizResultView.numOfQuestions = self._quiz.questions?.count
+                quizResultView.questionType = self._quiz.type
             }
         }
     }
